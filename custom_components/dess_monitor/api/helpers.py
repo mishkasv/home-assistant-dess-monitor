@@ -115,7 +115,7 @@ def resolve_active_load_percentage(data, device_data):
             return float(
                 next((x for x in data['last_data']['pars']['bc_'] if
                       x['id'].lower() == 'bc_eybond_read_37'), {'val': '0'})['val'])
-        case 2341:
+        case 2341 | 6416:
             return float(
                 next((x for x in data['last_data']['pars']['bc_'] if
                       x['id'].lower() == 'bc_battery_capacity'), {'val': '0'})['val'])
@@ -140,7 +140,7 @@ def resolve_output_priority(data, device_data):
         None: None
     }
     match device_data['devcode']:
-        case 2341:
+        case 2341 | 6416:
             val = next((x for x in data['last_data']['pars']['bc_'] if x['id'] == 'bc_output_source_priority'), {'val': None})['val']
 
         case 2376:
@@ -254,7 +254,7 @@ def resolve_inv_temperature(data, device_data):
 
 async def set_inverter_output_priority(token: str, secret: str, device_data, value: str):
     match device_data['devcode']:
-        case 2341:
+        case 2341 | 6416:
             map_param_value = {
                 'Utility': '0',
                 'Solar': '1',
@@ -289,7 +289,7 @@ async def set_inverter_output_priority(token: str, secret: str, device_data, val
 
 async def get_inverter_output_priority(token: str, secret: str, device_data):
     match device_data['devcode']:
-        case 2341:
+        case 2341 | 6416:
             map_param_value = {
                 'Utility first': 'Utility',
                 'Solar first': 'Solar',
