@@ -292,6 +292,7 @@ async def get_inverter_output_priority(token: str, secret: str, device_data):
         case 2341 | 6416:
             map_param_value = {
                 'Utility first': 'Utility',
+                'Utility': 'Utility',
                 'Solar first': 'Solar',
                 'SBU': 'SBU',
                 'SBU first': 'SBU',
