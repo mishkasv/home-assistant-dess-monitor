@@ -6,8 +6,7 @@ from datetime import datetime
 from enum import StrEnum
 
 import aiohttp
-import pydevd_pycharm
-pydevd_pycharm.settrace('192.168.0.104', port=5678, stdoutToServer=True, stderrToServer=True)
+
 
 class DeviceParameterName(StrEnum):
     BATTERY_VOLTAGE = 'Battery Voltage'
