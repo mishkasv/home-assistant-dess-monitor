@@ -6,8 +6,6 @@ from datetime import datetime
 from enum import StrEnum
 
 import aiohttp
-import sys
-sys.path.append("/home/misha/.local/bin")
 import pydevd_pycharm
 pydevd_pycharm.settrace('192.168.0.104', port=5678, stdoutToServer=True, stderrToServer=True)
 
